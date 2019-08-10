@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/4.1.0/css/bootstrap.min.css}" />
+
+    <title>Kastro</title>
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" th:href="@{/}">Kastro</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" th:href="@{/}">Inicio <span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+        <ul class="navbar-nav navbar-right">
+            <li class="nav-item">
+                <a class="nav-link nav-disable" sec:authentication="principal.username"></a>
+            </li>
+            <li sec:authorize="isAuthenticated()" class="nav-item"><a th:href="@{/logout}" class="nav-link">Cerrar Session</a></li>
+        </ul>
+    </div>
+</nav>
+
+<br>
+<br>
+<div class="container">
+    <h2>User Registration and Login Module using Spring Boot, Spring MVC, Spring Security, JPA/Hibernate and Thymeleaf</h2>
+
+    <p>
+        <strong>Bienvenido <span sec:authentication="principal.username">User</span></strong>
+    </p>
+</div>
+
+<script type="text/javascript" th:src="@{/webjars/jquery/3.2.1/jquery.min.js/}"></script>
+<script type="text/javascript" th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+
+</body>
+
+</html>
